@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Contiene la palabra 'My' en su nombre</h3>
+    <ul>
+        {% for elm in contains  %}
+        <li>{{elm}}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Elementos id <= 15</h3>
+    <ul>
+        {% for elm in rango  %}
+        <li>{{elm.email}}</li>
+        {% endfor %}
+    </ul>
+
+
+    <h3>Elementos ordenados por email</h3>
+    <ul>
+        {% for elm  in orders  %}
+        <li>{{elm.email}}</li>
+        {% endfor %}
+    <ul>
+
+    <h3>Obteniendo los 10 primeros emails despues del quinto</h3>
+    <ul>
+        {% for offs in offset   %}
+        <li>{{offs.email}}</li>
+        {% endfor %}
+    </ul>
+
+
+    <h3>Obteniendo los 10 primeros emails</h3>
+    <ul>
+        {% for listed in limit   %}
+        <li>{{listed.email}}</li>
+        {% endfor %}
+    </ul>
+
+
+    <h3>Busqueda un unico elemento</h3>
+    <p>{{filterone.email}}</p>
+
+
+    <h3>Busqueda filtrada</h3>
+    <ul>
+        {%for filter in filtered %}
+        <li>{{filter.name}}|{{filter.email}} </li>
+        {% endfor %}
+    </ul>
+
+    <h3>Todos los autores</h3>
+    <ul>
+        {% for author in authors%}
+        <li>{{author.name}} ({{author.email}})</l1>
+        {% endfor %}
+
+        <h3>Total de autores : {{authors|length}}</h3>
+    </ul>
+</body>
+</html>
