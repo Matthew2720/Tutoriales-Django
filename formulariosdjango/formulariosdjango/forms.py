@@ -7,5 +7,14 @@ class CommentForm(forms.Form):
     
 class ContactForm(forms.Form):
     name = forms.CharField(label="Nombre: ",max_length=50,widget=forms.TextInput(attrs={'class' : 'input'}))
-    email = forms.EmailField(label="Email: ", max_length=50)
-    message = forms.CharField(label="Mensaje: ")
+    email = forms.EmailField(label="Email: ", max_length=50,widget=forms.TextInput(attrs={'class' : 'input'}))
+    message = forms.CharField(label="Mensaje: ",widget=forms.TextInput(attrs={'class' : 'input'}))
+
+    def clean_name(self):
+        name = self.cleaned_data.get("name")
+        if name != "Open":
+            #Error
+            raise forms.ValidationError("Tan solo el valor Open esta permitido para este campo")
+        else:
+            #Exito
+            return name

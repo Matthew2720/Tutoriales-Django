@@ -7,17 +7,19 @@
     <title>Document</title>
     <style>
         .input {
-            background-color: red;
+            border: 1px solid black;border-radius: 10px;
         }
     </style>
 </head>
 <body>
     <h2>FORMULARIO WIDGET</h2>
     <hr>
-    <form action="{% url 'widget' %} method='POST' ">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Enviar">
-    <form>
+    <div style="display: flex ; justify-content: center;align-items:center;width: 400px;background-color: beige;">
+    <form action="{% url 'widget' %}" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Enviar" class="input">
+    </form>
+    </div>
 </body>
 </html>
