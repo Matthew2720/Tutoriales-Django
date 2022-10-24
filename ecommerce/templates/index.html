@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Producto</title>
 </head>
 <body>
-    <h1>Formulario</h1>
+    <h3>Añadir producto</h3>
     <hr>
-    <form action="{% url 'index' %}" method="post">
+    <h4>Producto añadido {{productName}}</h4>
+    <form action="{% url 'index' %}" method="POST">
         {% csrf_token %}
-        {{form}}
-        <input type="submit" value="Enviar">
+        {{form.as_p}}
+        <input type='submit' value='Crear Producto'>
+
     </form>
 </body>
 </html>
